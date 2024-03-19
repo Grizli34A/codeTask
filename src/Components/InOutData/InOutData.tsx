@@ -1,11 +1,12 @@
-import React, { FC, useState } from "react";
-import "./InOutData.scss";
-import cancel from "../../img/cancel.svg";
+import React, { FC } from "react";
 import { useTestCaseStore } from "../../store";
+import cancel from "../../img/cancel.svg";
+import "./InOutData.scss";
 
 interface ITestCaseProps {
   id: number;
 }
+
 const InOutData: FC<ITestCaseProps> = ({ id }) => {
   const { deleteTestCases, changeTestCases, testcases } = useTestCaseStore();
   const { inputData, outputData } = testcases[id];

@@ -1,5 +1,3 @@
-import React from "react";
-import { useState } from "react";
 import { useConsoleStore } from "../../store";
 import "./Console.scss";
 const Console = () => {
@@ -9,7 +7,7 @@ const Console = () => {
     <div className="console">
       <span>Console</span>
       <textarea
-        className={isError ? "console__textarea-error" : '"console__textarea"'}
+        className={isError ? "console__textarea-error" : "console__textarea"}
         value={consoleText}
         onChange={(event) => setConsoleText(event.target.value)}
       ></textarea>

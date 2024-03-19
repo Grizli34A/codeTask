@@ -1,13 +1,12 @@
-import React, { FC } from "react";
-
+import { FC, useState } from "react";
+import { Property } from "../../Services/services";
 import { useLanguages } from "../../Hooks/useLanguages";
 import { useTopics } from "../../Hooks/useTopics";
-import { Property } from "../../Services/services";
 import { useChangeProperty } from "../../Hooks/useChangeProperty";
-import { useState } from "react";
 import PropertyCard from "../PropertyCard/PropertyCard";
 import { useErrorPropStore } from "../../store";
 import "./ChangeProperty.scss";
+
 interface IPropertyProps {
   property: Property;
 }
@@ -15,15 +14,12 @@ interface IPropertyItem {
   name: string;
   id: number;
 }
+
 const ChangeProperty: FC<IPropertyProps> = ({ property }) => {
   const { isError, setError } = useErrorPropStore();
   const { data: dataLanguages } = useLanguages();
   const { data: dataTopics } = useTopics();
   const [inputValue, setInputValue] = useState("");
-  console.log(dataLanguages);
-  console.log(dataTopics);
-  console.log(property);
-
   const { mutate: addProp } = useChangeProperty("add");
 
   const addProperty = (name: string) => {

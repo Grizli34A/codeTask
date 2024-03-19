@@ -1,7 +1,6 @@
 import axios from "axios";
-
 const BASE = import.meta.env.VITE_API_URL;
-
+const Authorization = `Bearer ${localStorage.getItem("token")}`;
 export const authorization = async (userData: IUserData) => {
   const { userName, password } = userData;
   const response = await axios.post(BASE + "/auth/login", {
@@ -22,17 +21,14 @@ export interface ITasks {
 
 export const getAllTasks = async (request: Partial<ITasks> = {}) => {
   let { difficulties, topics, languages, size } = request;
-
-  if (difficulties === undefined) difficulties = "";
-  if (topics === undefined) topics = "";
-  if (languages === undefined) languages = "";
-  console.log("SIZE", size);
-
+  difficulties ??= "";
+  topics ??= "";
+  languages ??= "";
   const response = await axios(
     BASE + `/task/all?page=0&size=${size}${difficulties}${topics}${languages}`,
     {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: Authorization,
       },
     }
   );
@@ -50,7 +46,7 @@ export interface ITask {
 export const getAllLanguages = async () => {
   const response = await axios(BASE + "/programming-language/all", {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: Authorization,
     },
   });
   return response;
@@ -59,7 +55,7 @@ export const getAllLanguages = async () => {
 export const getAllTopics = async () => {
   const response = await axios(BASE + "/topic/all", {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: Authorization,
     },
   });
   return response;
@@ -68,7 +64,7 @@ export const getAllTopics = async () => {
 export const getTaskCount = async () => {
   const response = await axios(BASE + "/task/count", {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: Authorization,
     },
   });
   return response;
@@ -77,15 +73,17 @@ export const getTaskCount = async () => {
 export const getTask = async (id: string) => {
   const response = await axios(BASE + `/task/${id}`, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: Authorization,
     },
   });
   return response;
 };
+
 interface IUserData {
   userName: string;
   password: string;
 }
+
 export const registration = async (userData: IUserData) => {
   const { userName, password } = userData;
 
@@ -101,6 +99,7 @@ export interface ILikeComment {
   commentId: number;
   action: string;
 }
+
 export const likeComment = async (data: ILikeComment) => {
   const { commentId, action } = data;
   const response = await axios.post(
@@ -108,7 +107,7 @@ export const likeComment = async (data: ILikeComment) => {
     { id: commentId },
     {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: Authorization,
       },
     }
   );
@@ -119,6 +118,7 @@ export interface IComment {
   text: string;
   id: number;
 }
+
 export const sendComment = async (data: IComment) => {
   const { text, id } = data;
   const response = await axios.post(
@@ -126,7 +126,7 @@ export const sendComment = async (data: IComment) => {
     { text: text },
     {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: Authorization,
       },
     }
   );
@@ -141,6 +141,7 @@ interface ICode {
 export interface IExecute extends ICode {
   stdin: string;
 }
+
 export const executeCide = async (data: IExecute) => {
   const { language, stdin, code } = data;
   const response = await axios.post(
@@ -152,7 +153,7 @@ export const executeCide = async (data: IExecute) => {
     },
     {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: Authorization,
       },
     }
   );
@@ -162,6 +163,7 @@ export const executeCide = async (data: IExecute) => {
 export interface IAttempt extends ICode {
   taskId: string | undefined;
 }
+
 export const attemptCode = async (data: IAttempt) => {
   const { language, taskId, code } = data;
   const response = await axios.post(
@@ -173,7 +175,7 @@ export const attemptCode = async (data: IAttempt) => {
     },
     {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: Authorization,
       },
     }
   );
@@ -191,20 +193,18 @@ export interface ISolution {
 export const getSolutions = async (taskId: number) => {
   const response = await axios(BASE + `/solution/all/${taskId}`, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: Authorization,
     },
   });
   return response;
 };
 
 export const deleteComment = async (commentId: number) => {
-  console.log(BASE + `/task/comment/delete/${commentId}`);
-
   const response = await axios.delete(
     BASE + `/task/comment/delete/${commentId}`,
     {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: Authorization,
       },
     }
   );
@@ -219,6 +219,7 @@ export interface IChangeProperty {
   id?: number;
   name?: string;
 }
+
 export const addProperty = async (data: IChangeProperty) => {
   const { name, property } = data;
   const response = await axios.post(
@@ -228,7 +229,7 @@ export const addProperty = async (data: IChangeProperty) => {
     },
     {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: Authorization,
       },
     }
   );
@@ -239,7 +240,7 @@ export const deleteProperty = async (data: IChangeProperty) => {
   const { property, id } = data;
   const response = await axios.delete(BASE + `/${property}/delete/${id}`, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: Authorization,
     },
   });
   return response;
@@ -254,7 +255,7 @@ export const updateProperty = async (data: IChangeProperty) => {
     },
     {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: Authorization,
       },
     }
   );
@@ -288,7 +289,7 @@ export const addTask = async (data: ITaskData) => {
     },
     {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: Authorization,
       },
     }
   );
@@ -298,20 +299,17 @@ export const addTask = async (data: ITaskData) => {
 export const deleteTask = async (id: number) => {
   const response = await axios.delete(BASE + `/task/delete/${id}`, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: Authorization,
     },
   });
   return response;
 };
+
 export interface ITaskDataUpdate extends ITaskData {
   id: number;
 }
 export const updateTask = async (data: ITaskDataUpdate) => {
   const { name, condition, topic, difficulty, languages, testcases, id } = data;
-  console.log(data);
-
-  console.log(BASE + `/task/update/${id}`);
-
   const response = await axios.put(
     BASE + `/task/update/${id}`,
     {
@@ -324,7 +322,7 @@ export const updateTask = async (data: ITaskDataUpdate) => {
     },
     {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: Authorization,
       },
     }
   );
@@ -334,7 +332,7 @@ export const updateTask = async (data: ITaskDataUpdate) => {
 export const getTaskForUpdate = async (id: number) => {
   const response = await axios(BASE + `/task/update/${id}`, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: Authorization,
     },
   });
   return response;

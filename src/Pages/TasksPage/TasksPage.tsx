@@ -11,12 +11,10 @@ import useDeleteTask from "../../Hooks/useDeleteTask";
 import { useEffect, useLayoutEffect } from "react";
 import recycleBin from "../../img/recycleBin.svg";
 import update from "../../img/update.svg";
-import { useTestCaseStore } from "../../store";
 import { useTaskForUpdate } from "../../Hooks/useTaskForUpdate";
 import { useNavigate } from "react-router-dom";
 
 const TasksPage = () => {
-  // const { resetTestCases } = useTestCaseStore();
   const { setTaskId } = useTaskIdStore();
   const { position, setPosition } = usePositionStore();
   const role = localStorage.getItem("role");
@@ -26,6 +24,9 @@ const TasksPage = () => {
   const { setSize, setTaskCount } = useTasksStore();
   const { mutate } = useTaskForUpdate();
   const navigator = useNavigate();
+  console.log(taskCount?.data);
+  console.log(data?.data.length);
+
   useLayoutEffect(() => {
     if (taskCount?.data) setTaskCount(taskCount?.data);
   }, [taskCount?.data]);
@@ -41,52 +42,65 @@ const TasksPage = () => {
     setPosition(String(window.scrollY));
   };
 
+  const exit = () => {
+    localStorage.clear();
+    navigator("/auth");
+  };
   return (
-    <div className="taskPage">
-      <Filter />
-      <div className="taskPage__tasks">
-        {isLoading && <LoadingModal />}
-        {data && data.data.length > 0
-          ? data?.data.map((task: ITask, index: number) => (
-              <div key={index} className="taskPage__task-admin">
-                <Task
-                  id={task.id}
-                  name={task.name}
-                  topic={task.topic}
-                  difficulty={task.difficulty}
-                  languages={task.languages}
-                  isClickable
-                />
-                {role === "ROLE_ADMIN" && (
-                  <div className="options">
-                    <img
-                      src={update}
-                      width="40px"
-                      onClick={() => {
-                        mutate(task.id);
-                        setTaskId(task.id);
-                        //resetTestCases();
-                        navigator("/create-task");
-                      }}
-                    />
-                    <img
-                      src={recycleBin}
-                      width="40px"
-                      onClick={() => mutateDelete(task.id)}
-                    />
-                  </div>
-                )}
-              </div>
-            ))
-          : !isLoading && <p className="taskPage__nodata">No data</p>}
-        {taskCount?.data > data?.data.length &&
-          data?.data.length % 10 === 0 && (
+    <>
+      <div className="taskPage__route">
+        <button onClick={() => exit()} className="taskPage__route-exit">
+          Выйти
+        </button>
+        {role === "ROLE_ADMIN" && (
+          <button onClick={() => navigator(-1)}>Назад</button>
+        )}
+      </div>
+
+      <div className="taskPage">
+        <Filter />
+        <div className="taskPage__tasks">
+          {isLoading && <LoadingModal />}
+          {data && data.data.length > 0
+            ? data?.data.map((task: ITask, index: number) => (
+                <div key={index} className="taskPage__task-admin">
+                  <Task
+                    id={task.id}
+                    name={task.name}
+                    topic={task.topic}
+                    difficulty={task.difficulty}
+                    languages={task.languages}
+                    isClickable
+                  />
+                  {role === "ROLE_ADMIN" && (
+                    <div className="options">
+                      <img
+                        src={update}
+                        width="40px"
+                        onClick={() => {
+                          mutate(task.id);
+                          setTaskId(task.id);
+                          navigator("/create-task");
+                        }}
+                      />
+                      <img
+                        src={recycleBin}
+                        width="40px"
+                        onClick={() => mutateDelete(task.id)}
+                      />
+                    </div>
+                  )}
+                </div>
+              ))
+            : !isLoading && <p className="taskPage__nodata">No data</p>}
+          {taskCount?.data > data?.data.length && data?.data.length >= 10 && (
             <button className="taskPage__button" onClick={() => showMore()}>
               Показать еще
             </button>
           )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

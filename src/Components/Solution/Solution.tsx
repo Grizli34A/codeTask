@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { ISolution } from "../../Services/services";
 import { formatDate } from "../../Utils/utils";
 import "./Solution.scss";

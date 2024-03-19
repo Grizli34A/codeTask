@@ -3,9 +3,11 @@ import {
   deleteProperty,
   updateProperty,
   addProperty,
+  Action,
+  IChangeProperty,
 } from "../Services/services";
 import { useErrorPropStore } from "../store";
-import { Action, Property, IChangeProperty } from "../Services/services";
+
 export const useChangeProperty = (action: Action) => {
   const queryClient = useQueryClient();
   const { setError } = useErrorPropStore();

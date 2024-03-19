@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Select from "react-select";
+import { useNavigate } from "react-router-dom";
+import { Difficulties } from "../../Services/services";
+import {
+  useTaskInputsStore,
+  useTaskIdStore,
+  useTestCaseStore,
+} from "../../store";
 import { useLanguages } from "../../Hooks/useLanguages";
 import { useTopics } from "../../Hooks/useTopics";
+import useAddTask from "../../Hooks/useAddTask";
+import useUpdateTask from "../../Hooks/useUpdateTask";
 import { IOption } from "../../Components/CustomSelect/CustomSelect";
 import InOutData from "../../Components/InOutData/InOutData";
-import { ITaskFull, useTestCaseStore } from "../../store";
 import plus from "../../img/plus.svg";
-import { useTaskInputsStore, useTaskIdStore } from "../../store";
 import "./CreateTask.scss";
-import useAddTask from "../../Hooks/useAddTask";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { Difficulties, ITaskData, ITestCase } from "../../Services/services";
-import useUpdateTask from "../../Hooks/useUpdateTask";
-import { useNavigate } from "react-router-dom";
-interface ITaskInputs {
-  name?: string;
-  condition?: string;
-  topicValue?: string;
-  languageValue?: string[];
-  button?: string;
-  testcases?: ITestCase[];
-}
+
 const CreateTaskPage = () => {
   const navigator = useNavigate();
   const { taskId } = useTaskIdStore();
@@ -31,7 +26,6 @@ const CreateTaskPage = () => {
 
   const { mutate } = useAddTask();
   const { mutate: update } = useUpdateTask();
-  // const { handleSubmit, reset } = useForm<ITaskData>({ mode: "onBlur" });
   const [uniqValue, setUniqValue] = useState(0);
   const [topicIndex, setTopicIndex] = useState(-1);
   const [languagesDefault, setLanguagesDefault] = useState<IOption[] | null>(
@@ -112,11 +106,10 @@ const CreateTaskPage = () => {
     console.log(data);
 
     mutate(data);
+    navigator("/tasks");
   };
 
   const updateTask = () => {
-    console.log("updateClick");
-
     const data = {
       id: taskId,
       name: name,
@@ -198,9 +191,19 @@ const CreateTaskPage = () => {
         return <InOutData key={index} id={index} />;
       })}
       {taskInputs.name === "" ? (
-        <button onClick={() => createTask()}>Create</button>
+        <button
+          onClick={() => createTask()}
+          className="createTask__changeButton"
+        >
+          Create
+        </button>
       ) : (
-        <button onClick={() => updateTask()}>Update</button>
+        <button
+          onClick={() => updateTask()}
+          className="createTask__changeButton"
+        >
+          Update
+        </button>
       )}
     </div>
   );

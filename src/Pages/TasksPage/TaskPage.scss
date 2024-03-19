@@ -10,6 +10,16 @@
       justify-content: space-around;
     }
   }
+  &__route {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    button {
+      width: 120px;
+      background: #8aa8eb;
+    }
+  }
+
   .taskBody {
     position: absolute;
     top: 50%; /* Центрирование по вертикали */

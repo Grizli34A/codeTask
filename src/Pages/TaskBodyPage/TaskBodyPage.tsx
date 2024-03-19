@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getTask } from "../../Services/services";
 import { useParams } from "react-router-dom";
@@ -14,8 +15,10 @@ const TaskBodyPage = () => {
     queryKey: ["taskBody", taskId],
     queryFn: () => getTask(taskId!),
   });
-
-  const { selectedLanguage, setCondition } = useSandBoxStore();
+  useEffect(() => setSelectedLanguage(""), []);
+  const [error, serError] = useState(false);
+  const { selectedLanguage, setCondition, setSelectedLanguage } =
+    useSandBoxStore();
 
   return (
     <div className="taskBody">
@@ -26,12 +29,15 @@ const TaskBodyPage = () => {
             if (selectedLanguage) {
               setCondition(data?.data.condition);
               navigator(`/sandbox/${taskId}`);
-            }
+            } else serError(true);
           }}
         >
           Coding
         </button>
       </div>
+      {error && (
+        <p style={{ textAlign: "center" }}>Select a programmin language</p>
+      )}
       {data && (
         <>
           <Task
@@ -46,7 +52,6 @@ const TaskBodyPage = () => {
           <p>Condition: {data.data.condition}</p>
         </>
       )}
-
       <Comment comments={data?.data.comments} id={Number(taskId)} />
     </div>
   );

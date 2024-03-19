@@ -9,6 +9,7 @@ interface ITasksStore extends ITasks {
   setLanguages: (language: string[]) => void;
   setTaskCount: (count: number) => void;
   setSize: () => void;
+  reset: () => void;
 }
 
 export const useTasksStore = create<ITasksStore>((set, get) => ({
@@ -55,6 +56,13 @@ export const useTasksStore = create<ITasksStore>((set, get) => ({
   setLanguages: (language: string[]) => {
     set(() => ({
       languages: language,
+    }));
+  },
+  reset: () => {
+    set(() => ({
+      difficulties: [],
+      topics: [],
+      languages: [],
     }));
   },
 }));
@@ -155,8 +163,8 @@ interface ITestCases {
     outPutValue: string
   ) => void;
   deleteTestCases: (id: number) => void;
-  //resetTestCases: () => void;
 }
+
 export const useTestCaseStore = create<ITestCases>((set, get) => ({
   testcases: [{ inputData: "", outputData: "" }],
   addTestCases: () => {
@@ -189,11 +197,6 @@ export const useTestCaseStore = create<ITestCases>((set, get) => ({
       }));
     }
   },
-  /*  resetTestCases: () => {
-    set(() => ({
-      testcases: [{ inputData: "", outputData: "" }],
-    }));
-  }, */
 }));
 
 interface IPosition {

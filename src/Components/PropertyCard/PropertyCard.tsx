@@ -1,17 +1,16 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
+import { IChangeProperty } from "../../Services/services";
 import { useChangeProperty } from "../../Hooks/useChangeProperty";
 import pencil from "../../img/pencil.svg";
 import recycleBin from "../../img/recycleBin.svg";
 import "./PropertyCard.scss";
-import { IChangeProperty } from "../../Services/services";
-import { useErrorPropStore } from "../../store";
 
 const PropertyCard: FC<IChangeProperty> = ({ name, id, property }) => {
-  const { isError } = useErrorPropStore();
   const { mutate: deleteProp } = useChangeProperty("delete");
   const { mutate: updateProp } = useChangeProperty("update");
   const [textareaIsDisabled, setTextareaIsDisabled] = useState(true);
   const [textareaValue, setTextareaValue] = useState(name);
+
   const removeProperty = () => {
     const data = {
       property: property,
@@ -19,6 +18,7 @@ const PropertyCard: FC<IChangeProperty> = ({ name, id, property }) => {
     };
     deleteProp(data);
   };
+
   const updateProperty = () => {
     if (!textareaIsDisabled) {
       const data = {
@@ -30,6 +30,7 @@ const PropertyCard: FC<IChangeProperty> = ({ name, id, property }) => {
       setTextareaIsDisabled(true);
     } else setTextareaIsDisabled(false);
   };
+
   return (
     <div className="propertyCard">
       <textarea

@@ -1,16 +1,13 @@
 import React from "react";
-
-import CustomSelect from "../CustomSelect/CustomSelect";
 import { useLanguages } from "../../Hooks/useLanguages";
 import { useTopics } from "../../Hooks/useTopics";
+import CustomSelect from "../CustomSelect/CustomSelect";
 import Difficulty from "../Difficulty/Difficulty";
 import "./Filter.scss";
 
 const Filter = React.memo(() => {
   const { data: dataLanguages } = useLanguages();
   const { data: dataTopics } = useTopics();
-
-  console.log("filer");
 
   return (
     <div className="filter">

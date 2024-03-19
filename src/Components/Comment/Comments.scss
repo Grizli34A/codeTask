@@ -5,6 +5,9 @@
     &-piece {
       border-bottom: 1px solid black;
       padding: 5px;
+      p {
+        word-wrap: break-word;
+      }
     }
     &-like {
       display: flex;
@@ -24,7 +27,11 @@
       width: 70%;
     }
     margin-bottom: 10px;
-  }
-  .comments__recycleBin {
+    textarea {
+      width: 80%;
+    }
+    button {
+      height: 43px;
+    }
   }
 }

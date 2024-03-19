@@ -1,7 +1,6 @@
-import React, { FC } from "react";
-import { ITask } from "../../Services/services";
+import React, { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { ITask } from "../../Services/services";
 import { useSandBoxStore } from "../../store";
 import "./Task.scss";
 
@@ -24,7 +23,6 @@ const Task: FC<ITaskProps> = React.memo(
 
     const handleLanguageChange = (language: string) => {
       setSelectedLanguage(language);
-
       setRadioLanguage(language === radioLanguage ? null : language);
     };
     return (

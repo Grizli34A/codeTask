@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { useTasksStore } from "../../store";
-import "./Difficulty.scss";
 import { Difficulties } from "../../Services/services";
-
+import { useTasksStore, usePositionStore } from "../../store";
+import "./Difficulty.scss";
 const Difficulty = () => {
   const difficulties = ["EASY", "MEDIUM", "HARD"];
   const [buttonIsActive, setButtonIsActive] = useState([false, false, false]);
   const { setDifficulties } = useTasksStore();
-
+  const { setPosition } = usePositionStore();
   const buttonHandler = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     index: number
@@ -15,8 +14,8 @@ const Difficulty = () => {
     const buttonText = event.currentTarget.textContent!;
 
     if (event && difficulties.includes(buttonText as Difficulties))
-      localStorage.removeItem("position");
-    setDifficulties(buttonText as Difficulties);
+      setDifficulties(buttonText as Difficulties);
+    setPosition("0");
     setButtonIsActive((prevStates) => {
       const newStates = [...prevStates];
       newStates[index] = !newStates[index];

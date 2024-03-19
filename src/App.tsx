@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import RegistrationPage from "./Pages/RegistrationPage/RegistrationPage";
-import "./App.css";
 import TasksPage from "./Pages/TasksPage/TasksPage";
 import AuthPage from "./Pages/AuthPage/AuthPage";
 import TaskBodyPage from "./Pages/TaskBodyPage/TaskBodyPage";
@@ -8,6 +7,7 @@ import SandBoxPage from "./Pages/SandBoxPage/SandBoxPage";
 import SolutionsPage from "./Pages/SolutionsPage/SolutionsPage";
 import MainPage from "./Pages/MainPage/MainPage";
 import CreateTaskPage from "./Pages/CreateTaskPage/CreateTaskPage";
+import "./App.css";
 
 function App() {
   return (

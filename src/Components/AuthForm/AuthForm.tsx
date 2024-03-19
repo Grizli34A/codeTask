@@ -2,19 +2,24 @@ import React, { useState, FC } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate, NavLink } from "react-router-dom";
 import { AxiosError } from "axios";
-import "./AuthForm.scss";
 import { JwtPayload, jwtDecode } from "jwt-decode";
+import { useTasksStore } from "../../store";
+import "./AuthForm.scss";
+
 interface IAuthForm {
   mutationFn: (data: any) => Promise<any>; // Передаем функцию для выполнения мутации
   buttonText: string;
   title: string;
 }
+
 interface JWT extends JwtPayload {
   role: string;
 }
+
 const AuthForm: FC<IAuthForm> = ({ mutationFn, buttonText, title }) => {
   const [userData, setUserData] = useState({ userName: "", password: "" });
   const navigator = useNavigate();
+  const { reset } = useTasksStore();
   const { mutate, isError, error } = useMutation({
     mutationFn,
     onSuccess: (response) => {
@@ -28,6 +33,7 @@ const AuthForm: FC<IAuthForm> = ({ mutationFn, buttonText, title }) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    reset();
     mutate(userData);
   };
 

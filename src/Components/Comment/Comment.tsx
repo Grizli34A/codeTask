@@ -1,14 +1,13 @@
 import React, { FC, useState } from "react";
+import { formatDate } from "../../Utils/utils";
+import { useLike } from "../../Hooks/useLike";
+import { useComment } from "../../Hooks/useComment";
+import { useDeleteComment } from "../../Hooks/useDeleteComment";
 import heart from "../../img/heart.svg";
 import readHeart from "../../img/redHeart.svg";
 import recycleBin from "../../img/recycleBin.svg";
-import { formatDate } from "../../Utils/utils";
-
 import "./Comments.scss";
-import { useLike } from "../../Hooks/useLike";
 
-import { useComment } from "../../Hooks/useComment";
-import { useDeleteComment } from "../../Hooks/useDeleteComment";
 interface IComment {
   id: number;
   username: string;
@@ -47,11 +46,6 @@ const Comment: FC<ICommentProps> = ({ comments, id }) => {
     setTextareaValue("");
   };
 
-  const deleteComment = (commentId: number) => {
-    console.log("deleteComment");
-
-    mutateDeleteComment(commentId);
-  };
   return (
     <>
       <div className="comments">
@@ -79,7 +73,7 @@ const Comment: FC<ICommentProps> = ({ comments, id }) => {
                         src={recycleBin}
                         className="comments__recycleBin"
                         width="30px"
-                        onClick={() => deleteComment(comment.id)}
+                        onClick={() => mutateDeleteComment(comment.id)}
                       />
                     )}
                   </div>
