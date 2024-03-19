@@ -15,7 +15,7 @@ const MainPage = () => {
   const role = localStorage.getItem("role");
   useEffect(() => {
     if (!role) {
-      navigator("/register");
+      navigator("/auth");
     } else if (role === Role.user) navigator("/tasks");
   }, [role]);
 
