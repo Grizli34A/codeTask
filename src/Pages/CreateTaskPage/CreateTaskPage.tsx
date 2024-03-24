@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
-import { Difficulties } from "../../Services/services";
+import { Difficulties } from "Services/services";
 import {
   useTaskInputsStore,
   useTaskIdStore,
   useTestCaseStore,
 } from "../../store";
-import { useLanguages } from "../../Hooks/useLanguages";
-import { useTopics } from "../../Hooks/useTopics";
-import useAddTask from "../../Hooks/useAddTask";
-import useUpdateTask from "../../Hooks/useUpdateTask";
-import { IOption } from "../../Components/CustomSelect/CustomSelect";
-import InOutData from "../../Components/InOutData/InOutData";
-import plus from "../../img/plus.svg";
+import { useLanguages } from "Hooks/useLanguages";
+import { useTopics } from "Hooks/useTopics";
+import useAddTask from "Hooks/useAddTask";
+import useUpdateTask from "Hooks/useUpdateTask";
+import { IOption } from "Components/CustomSelect/CustomSelect";
+import InOutData from "Components/InOutData/InOutData";
+import plus from "img/plus.svg";
 import "./CreateTask.scss";
 
 const CreateTaskPage = () => {

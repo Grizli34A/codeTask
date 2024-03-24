@@ -1,8 +1,9 @@
 import { FC, useState } from "react";
-import { IChangeProperty } from "../../Services/services";
-import { useChangeProperty } from "../../Hooks/useChangeProperty";
-import pencil from "../../img/pencil.svg";
-import recycleBin from "../../img/recycleBin.svg";
+import { IChangeProperty } from "Services/services";
+
+import { useChangeProperty } from "Hooks/useChangeProperty";
+import pencil from "img/pencil.svg";
+import recycleBin from "img/recycleBin.svg";
 import "./PropertyCard.scss";
 
 const PropertyCard: FC<IChangeProperty> = ({ name, id, property }) => {

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getTaskCount } from "../Services/services";
-import { useTasksStore } from "../store";
+import { getTaskCount } from "Services/services";
+import { useTasksStore } from "store";
 const useTaskCount = () => {
   const { taskCount } = useTasksStore();
   return useQuery({

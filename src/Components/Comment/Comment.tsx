@@ -1,11 +1,11 @@
 import React, { FC, useState } from "react";
-import { formatDate } from "../../Utils/utils";
-import { useLike } from "../../Hooks/useLike";
-import { useComment } from "../../Hooks/useComment";
-import { useDeleteComment } from "../../Hooks/useDeleteComment";
-import heart from "../../img/heart.svg";
-import readHeart from "../../img/redHeart.svg";
-import recycleBin from "../../img/recycleBin.svg";
+import { formatDate } from "Utils/utils";
+import { useLike } from "Hooks/useLike";
+import { useComment } from "Hooks/useComment";
+import { useDeleteComment } from "Hooks/useDeleteComment";
+import heart from "img/heart.svg";
+import readHeart from "img/redHeart.svg";
+import recycleBin from "img/recycleBin.svg";
 import "./Comments.scss";
 
 interface IComment {

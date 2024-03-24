@@ -1,9 +1,8 @@
 import { FC } from "react";
-import { ISolution } from "../../Services/services";
-import { formatDate } from "../../Utils/utils";
+import { ISolution } from "Services/services";
+import { formatDate } from "Utils/utils";
 import "./Solution.scss";
 const Solution: FC<ISolution> = ({
-  id,
   username,
   submissionDate,
   submissionTime,

@@ -3,7 +3,8 @@ import { useMutation } from "@tanstack/react-query";
 import { useNavigate, NavLink } from "react-router-dom";
 import { AxiosError } from "axios";
 import { JwtPayload, jwtDecode } from "jwt-decode";
-import { useTasksStore } from "../../store";
+import { useTasksStore } from "store";
+
 import "./AuthForm.scss";
 
 interface IAuthForm {

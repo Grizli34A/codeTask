@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { useTestCaseStore } from "../../store";
-import cancel from "../../img/cancel.svg";
+import { useTestCaseStore } from "store";
+import cancel from "img/cancel.svg";
 import "./InOutData.scss";
 
 interface ITestCaseProps {

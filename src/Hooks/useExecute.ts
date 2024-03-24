@@ -1,7 +1,7 @@
-import { executeCide } from "../Services/services";
+import { executeCide } from "Services/services";
 import { useMutation } from "@tanstack/react-query";
-import { IExecute } from "../Services/services";
-import { useConsoleStore } from "../store";
+import { IExecute } from "Services/services";
+import { useConsoleStore } from "store";
 export const useExecute = () => {
   const { consoleText, setConsoleText, setTimeExecution, setIsError } =
     useConsoleStore();

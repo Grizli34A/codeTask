@@ -1,4 +1,4 @@
-import { useSandBoxStore } from "../../store";
+import { useSandBoxStore } from "store";
 const ConditionPanel = () => {
   const { condition } = useSandBoxStore();
   return (

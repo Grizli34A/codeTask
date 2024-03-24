@@ -1,4 +1,4 @@
-import { Difficulties } from "../Services/services";
+import { Difficulties } from "Services/services";
 
 export const createRequest = (
   filterElement: Difficulties | string[] | string | undefined,
@@ -27,4 +27,3 @@ export const formatDate = (dateStr: string) => {
 
   return `${hours}:${minutes}:${seconds} ${date}`;
 };
-

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ChangeProperty from "../../Components/ChangeProperty/ChangeProperty";
+import ChangeProperty from "Components/ChangeProperty/ChangeProperty";
 import "./MainPage.scss";
 
 enum Role {

@@ -1,4 +1,4 @@
-import { useCodeTextStore } from "../../store";
+import { useCodeTextStore } from "store";
 import "./CodeBlock.scss";
 
 const CodeBlock = () => {

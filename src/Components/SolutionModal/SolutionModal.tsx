@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useSolutionStore } from "../../store";
+import { useSolutionStore } from "store";
 import { useNavigate } from "react-router-dom";
 
 interface ISolutionInfoProps {

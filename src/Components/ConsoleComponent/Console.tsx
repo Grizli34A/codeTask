@@ -1,4 +1,4 @@
-import { useConsoleStore } from "../../store";
+import { useConsoleStore } from "store";
 import "./Console.scss";
 const Console = () => {
   const { consoleText, setConsoleText, timeExecution, isError } =

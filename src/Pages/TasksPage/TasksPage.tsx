@@ -1,17 +1,17 @@
-import { useTasks } from "../../Hooks/useTasks";
-import { ITask } from "../../Services/services";
-import Task from "../../Components/Task/Task";
-import Filter from "../../Components/Filter/Filter";
-import LoadingModal from "../../Components/LoadingModal/LoadingModal";
-import { usePositionStore } from "../../store";
+import { useTasks } from "Hooks/useTasks";
+import { ITask } from "Services/services";
+import Task from "Components/Task/Task";
+import Filter from "Components/Filter/Filter";
+import LoadingModal from "Components/LoadingModal/LoadingModal";
+import { usePositionStore } from "store";
 import "./TaskPage.scss";
-import useTaskCount from "../../Hooks/useTaskCount";
-import { useTasksStore, useTaskIdStore } from "../../store";
-import useDeleteTask from "../../Hooks/useDeleteTask";
+import useTaskCount from "Hooks/useTaskCount";
+import { useTasksStore, useTaskIdStore } from "store";
+import useDeleteTask from "Hooks/useDeleteTask";
 import { useEffect, useLayoutEffect } from "react";
-import recycleBin from "../../img/recycleBin.svg";
-import update from "../../img/update.svg";
-import { useTaskForUpdate } from "../../Hooks/useTaskForUpdate";
+import recycleBin from "img/recycleBin.svg";
+import update from "img/update.svg";
+import { useTaskForUpdate } from "Hooks/useTaskForUpdate";
 import { useNavigate } from "react-router-dom";
 
 const TasksPage = () => {

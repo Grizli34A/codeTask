@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ITask } from "../../Services/services";
-import { useSandBoxStore } from "../../store";
+import { ITask } from "Services/services";
+import { useSandBoxStore } from "store";
 import "./Task.scss";
 
 interface ITaskProps extends ITask {

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Select from "react-select";
-import { useTasksStore } from "../../store";
+import { useTasksStore } from "store";
 
 export interface IOption {
   id: number;

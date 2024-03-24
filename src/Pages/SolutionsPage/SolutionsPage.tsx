@@ -1,9 +1,8 @@
-import React from "react";
-import { getSolutions } from "../../Services/services";
+import { getSolutions } from "Services/services";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import Solution from "../../Components/Solution/Solution";
-import { ISolution } from "../../Services/services";
+import Solution from "Components/Solution/Solution";
+import { ISolution } from "Services/services";
 import "./SolutionsPage.scss";
 const SolutionsPage = () => {
   const { taskId } = useParams();

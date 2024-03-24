@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getTask } from "../../Services/services";
+import { getTask } from "Services/services";
 import { useParams } from "react-router-dom";
-import Comment from "../../Components/Comment/Comment";
+import Comment from "Components/Comment/Comment";
 import { useNavigate } from "react-router-dom";
-import { useSandBoxStore } from "../../store";
+import { useSandBoxStore } from "store";
 import "./TaskBodyPage.scss";
-import Task from "../../Components/Task/Task";
+import Task from "Components/Task/Task";
 
 const TaskBodyPage = () => {
   const { taskId } = useParams();
@@ -42,7 +42,7 @@ const TaskBodyPage = () => {
         <>
           <Task
             key={data.data.index}
-            id={data.data.id}
+            id={data.data.index}
             name={data.data.name}
             topic={data.data.topic}
             difficulty={data.data.difficulty}

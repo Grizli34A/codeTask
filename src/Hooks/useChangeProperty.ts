@@ -5,8 +5,8 @@ import {
   addProperty,
   Action,
   IChangeProperty,
-} from "../Services/services";
-import { useErrorPropStore } from "../store";
+} from "Services/services";
+import { useErrorPropStore } from "store";
 
 export const useChangeProperty = (action: Action) => {
   const queryClient = useQueryClient();

@@ -1,10 +1,10 @@
-import Console from "../../Components/ConsoleComponent/Console";
-import ConditionPanel from "../../Components/ConditionPanel/ConditionPanel";
-import CodeBlock from "../../Components/CodeBlock/CodeBlock";
-import SolutionInfo from "../../Components/SolutionModal/SolutionModal";
+import Console from "Components/ConsoleComponent/Console";
+import ConditionPanel from "Components/ConditionPanel/ConditionPanel";
+import CodeBlock from "Components/CodeBlock/CodeBlock";
+import SolutionInfo from "Components/SolutionModal/SolutionModal";
 import "./SandBoxPage.scss";
-import { useAttempt } from "../../Hooks/useAttempt";
-import { useExecute } from "../../Hooks/useExecute";
+import { useAttempt } from "Hooks/useAttempt";
+import { useExecute } from "Hooks/useExecute";
 import {
   useConsoleStore,
   useCodeTextStore,

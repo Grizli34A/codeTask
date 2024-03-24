@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateTask } from "../Services/services";
-import { ITaskDataUpdate } from "../Services/services";
+import { updateTask } from "Services/services";
+import { ITaskDataUpdate } from "Services/services";
 const useUpdateTask = () => {
   const queryClient = useQueryClient();
   return useMutation({
