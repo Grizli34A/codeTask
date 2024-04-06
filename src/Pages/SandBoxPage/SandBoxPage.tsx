@@ -1,16 +1,16 @@
-import Console from "Components/ConsoleComponent/Console";
-import ConditionPanel from "Components/ConditionPanel/ConditionPanel";
-import CodeBlock from "Components/CodeBlock/CodeBlock";
-import SolutionInfo from "Components/SolutionModal/SolutionModal";
+import Console from "components/ConsoleComponent/Console";
+import ConditionPanel from "components/ConditionPanel/ConditionPanel";
+import CodeBlock from "components/CodeBlock/CodeBlock";
+import SolutionInfo from "components/SolutionModal/SolutionModal";
 import "./SandBoxPage.scss";
-import { useAttempt } from "Hooks/useAttempt";
-import { useExecute } from "Hooks/useExecute";
+import { useAttempt } from "hooks/useAttempt";
+import { useExecute } from "hooks/useExecute";
 import {
   useConsoleStore,
   useCodeTextStore,
   useSandBoxStore,
   useSolutionStore,
-} from "../../store";
+} from "store";
 import { useParams } from "react-router-dom";
 
 const SandBoxPage = () => {

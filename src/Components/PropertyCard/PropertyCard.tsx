@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
-import { IChangeProperty } from "Services/services";
+import { IChangeProperty } from "services/services";
 
-import { useChangeProperty } from "Hooks/useChangeProperty";
+import { useChangeProperty } from "hooks/useChangeProperty";
 import pencil from "img/pencil.svg";
 import recycleBin from "img/recycleBin.svg";
 import "./PropertyCard.scss";

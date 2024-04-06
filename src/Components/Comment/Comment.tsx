@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
-import { formatDate } from "Utils/utils";
-import { useLike } from "Hooks/useLike";
-import { useComment } from "Hooks/useComment";
-import { useDeleteComment } from "Hooks/useDeleteComment";
+import { formatDate } from "utils/utils";
+import { useLike } from "hooks/useLike";
+import { useComment } from "hooks/useComment";
+import { useDeleteComment } from "hooks/useDeleteComment";
 import heart from "img/heart.svg";
 import readHeart from "img/redHeart.svg";
 import recycleBin from "img/recycleBin.svg";

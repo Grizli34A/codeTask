@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Difficulties } from "Services/services";
+import { Difficulties } from "services/services";
 import { useTasksStore, usePositionStore } from "store";
 import "./Difficulty.scss";
 const Difficulty = () => {

@@ -15,10 +15,10 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "components/*": ["components/*"],
-      "hooks/*": ["hooks/*"],
-      "services/*": ["services/*"],
-      "utils/*": ["utils/*"],
+      "components/*": ["Components/*"],
+      "hooks/*": ["Hooks/*"],
+      "services/*": ["Services/*"],
+      "utils/*": ["Utils/*"],
       "img/*": ["img/*"]
     },
 

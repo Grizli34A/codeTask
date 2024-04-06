@@ -1,4 +1,4 @@
-import { deleteComment } from "Services/services";
+import { deleteComment } from "services/services";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export const useDeleteComment = () => {

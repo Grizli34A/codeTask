@@ -1,6 +1,6 @@
-import { attemptCode } from "../Services/services";
+import { attemptCode } from "services/services";
 import { useMutation } from "@tanstack/react-query";
-import { IAttempt } from "../Services/services";
+import { IAttempt } from "services/services";
 import { useSolutionStore } from "store";
 
 export const useAttempt = () => {

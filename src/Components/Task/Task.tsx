@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ITask } from "Services/services";
+import { ITask } from "services/services";
 import { useSandBoxStore } from "store";
 import "./Task.scss";
 

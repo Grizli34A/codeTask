@@ -1,4 +1,4 @@
-import { getAllTopics } from "Services/services";
+import { getAllTopics } from "services/services";
 import { useQuery } from "@tanstack/react-query";
 
 export const useTopics = () => {

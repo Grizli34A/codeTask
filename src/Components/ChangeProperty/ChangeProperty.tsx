@@ -1,10 +1,10 @@
 import { FC, useState } from "react";
 
-import { Property } from "Services/services";
-import { useLanguages } from "Hooks/useLanguages";
-import { useTopics } from "Hooks/useTopics";
-import { useChangeProperty } from "Hooks/useChangeProperty";
-import PropertyCard from "Components/PropertyCard/PropertyCard";
+import { Property } from "services/services";
+import { useLanguages } from "hooks/useLanguages";
+import { useTopics } from "hooks/useTopics";
+import { useChangeProperty } from "hooks/useChangeProperty";
+import PropertyCard from "components/PropertyCard/PropertyCard";
 
 import { useErrorPropStore } from "store";
 import "./ChangeProperty.scss";

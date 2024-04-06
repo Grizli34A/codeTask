@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getTask } from "Services/services";
+import { getTask } from "services/services";
 import { useParams } from "react-router-dom";
-import Comment from "Components/Comment/Comment";
+import Comment from "components/Comment/Comment";
 import { useNavigate } from "react-router-dom";
 import { useSandBoxStore } from "store";
 import "./TaskBodyPage.scss";
-import Task from "Components/Task/Task";
+import Task from "components/Task/Task";
 
 const TaskBodyPage = () => {
   const { taskId } = useParams();

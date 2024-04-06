@@ -1,4 +1,4 @@
-import { getTaskForUpdate } from "Services/services";
+import { getTaskForUpdate } from "services/services";
 import { useMutation } from "@tanstack/react-query";
 import { useTaskInputsStore } from "store";
 export const useTaskForUpdate = () => {

@@ -1,4 +1,4 @@
-import { Difficulties } from "Services/services";
+import { Difficulties } from "services/services";
 
 export const createRequest = (
   filterElement: Difficulties | string[] | string | undefined,

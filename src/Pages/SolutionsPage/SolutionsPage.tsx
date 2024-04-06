@@ -1,14 +1,14 @@
-import { getSolutions } from "Services/services";
+import { getSolutions } from "services/services";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import Solution from "Components/Solution/Solution";
-import { ISolution } from "Services/services";
+import Solution from "components/Solution/Solution";
+import { ISolution } from "services/services";
 import "./SolutionsPage.scss";
 const SolutionsPage = () => {
   const { taskId } = useParams();
   const { data } = useQuery({
     queryKey: ["solutions"],
-    queryFn: () => getSolutions(taskId!),
+    queryFn: () => getSolutions(Number(taskId)!),
   });
   console.log(data);
 

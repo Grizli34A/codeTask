@@ -1,5 +1,5 @@
-import { registration } from "Services/services";
-import AuthForm from "Components/AuthForm/AuthForm";
+import { registration } from "services/services";
+import AuthForm from "components/AuthForm/AuthForm";
 const RegistrationPage = () => {
   return (
     <AuthForm

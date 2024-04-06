@@ -1,8 +1,8 @@
 import React from "react";
-import { useLanguages } from "Hooks/useLanguages";
-import { useTopics } from "Hooks/useTopics";
-import CustomSelect from "Components/CustomSelect/CustomSelect";
-import Difficulty from "Components/Difficulty/Difficulty";
+import { useLanguages } from "hooks/useLanguages";
+import { useTopics } from "hooks/useTopics";
+import CustomSelect from "components/CustomSelect/CustomSelect";
+import Difficulty from "components/Difficulty/Difficulty";
 import "./Filter.scss";
 
 const Filter = React.memo(() => {

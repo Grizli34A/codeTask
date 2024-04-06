@@ -1,7 +1,7 @@
-import { getAllTasks } from "Services/services";
+import { getAllTasks } from "services/services";
 import { useQuery } from "@tanstack/react-query";
-import { ITasks } from "Services/services";
-import { createRequest } from "Utils/utils";
+import { ITasks } from "services/services";
+import { createRequest } from "utils/utils";
 import { useTasksStore } from "store";
 
 export const useTasks = () => {

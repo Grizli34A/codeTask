@@ -5,7 +5,7 @@ import {
   addProperty,
   Action,
   IChangeProperty,
-} from "Services/services";
+} from "services/services";
 import { useErrorPropStore } from "store";
 
 export const useChangeProperty = (action: Action) => {
